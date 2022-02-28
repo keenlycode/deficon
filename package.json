@@ -1,0 +1,47 @@
+{
+  "name": "@nitipit/icon",
+  "version": "0.0.3",
+  "description": "HTML5 Icon component for SVG icons",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitipit/icon.git"
+  },
+  "keywords": [
+    "icon",
+    "js",
+    "html",
+    "svg"
+  ],
+  "author": "Nitipit Nontasuwan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nitipit/icon/issues"
+  },
+  "homepage": "https://github.com/nitipit/icon#readme",
+  "dependencies": {
+    "@nitipit/icon": "file:./",
+    "gadjet": "^0.1.9",
+    "parcel": "^2.3.2"
+  },
+  "main": "dist/icons.js",
+  "module": "dist/icon.js",
+  "targets": {
+    "main": false,
+    "module": {
+      "source": "src/icon.ts",
+      "outputFormat": "esmodule",
+      "isLibrary": true
+    },
+    "docs": {
+      "outputFormat": "global",
+      "distDir": "docs"
+    }
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {}
+}
