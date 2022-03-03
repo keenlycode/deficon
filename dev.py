@@ -17,7 +17,7 @@ async def engrave():
 async def main():
     await asyncio.gather(
         parcel(),
-        engrave(),
+        # engrave(),
     )
 
 
