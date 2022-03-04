@@ -1,11 +1,11 @@
 export class Icon extends HTMLElement {
     static href: string;
-    href: string;
+    src: string;
     name: string;
 
     constructor() {
         super();
-        this.href = this.getAttribute('href');
+        this.src = this.getAttribute('src');
         this.name = this.getAttribute('name');
         this.render();
     };
@@ -18,12 +18,12 @@ export class Icon extends HTMLElement {
 
         this.innerHTML = '';
 
-        if (this.href) {
+        if (this.src) {
             const img = document.createElement('img');
-            img.src = this.href;
+            img.src = this.src;
             img.style.height = '1em';
             this.append(img);
-        } else {
+        } else if (this.name) {
             svg.style.width = '1em';
             svg.style.height = '1em';
             this.appendChild(svg);
