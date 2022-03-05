@@ -5,7 +5,6 @@ export class Icon extends HTMLElement {
 
     constructor() {
         super();
-        this.src = this.getAttribute('src');
         this.name = this.getAttribute('name');
         this.render();
     };
@@ -17,21 +16,13 @@ export class Icon extends HTMLElement {
             'use');
 
         this.innerHTML = '';
-
-        if (this.src) {
-            const img = document.createElement('img');
-            img.src = this.src;
-            img.style.height = '1em';
-            this.append(img);
-        } else if (this.name) {
-            svg.style.width = '1em';
-            svg.style.height = '1em';
-            this.appendChild(svg);
-            use.setAttributeNS(
-                'http://www.w3.org/1999/xlink',
-                'xlink:href',
-                `${this.constructor.href}#${this.name}`);
-            svg.appendChild(use);
-        }
+        svg.style.width = '1em';
+        svg.style.height = '1em';
+        this.appendChild(svg);
+        use.setAttributeNS(
+            'http://www.w3.org/1999/xlink',
+            'xlink:href',
+            `${this.constructor.href}#${this.name}`);
+        svg.appendChild(use);
     }
 };
