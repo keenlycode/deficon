@@ -1,6 +1,6 @@
 {
   "name": "@nitipit/icon",
-  "version": "0.0.6",
+  "version": "1.0.0dev",
   "description": "HTML5 Icon component for SVG icons",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,11 +21,6 @@
     "url": "https://github.com/nitipit/icon/issues"
   },
   "homepage": "https://github.com/nitipit/icon#readme",
-  "dependencies": {
-    "@nitipit/icon": "file:./",
-    "gadjet": "^0.1.9",
-    "parcel": "^2.3.2"
-  },
   "main": "dist/icons.js",
   "module": "dist/icon.js",
   "targets": {
@@ -43,5 +38,7 @@
   "directories": {
     "doc": "docs"
   },
-  "devDependencies": {}
+  "dependencies": {
+    "parcel": "^2.8.3"
+  }
 }

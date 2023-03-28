@@ -1,7 +1,6 @@
 export class Icon extends HTMLElement {
     static href: string;
-    src: string;
-    name: string;
+    name: string | null;
 
     constructor() {
         super();
