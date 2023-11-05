@@ -1,44 +1,24 @@
 {
-  "name": "deficon",
+  "name": "@devcapsule/deficon",
   "version": "1.0.0",
   "description": "SVG defs icon component for HTML",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nitipit/icon.git"
-  },
   "keywords": [
     "icon",
     "js",
     "html",
     "svg"
   ],
+  "scripts": {
+    "watch": "parcel watch src/icon.ts",
+    "build": "parcel build --no-cache src/icon.ts"
+  },
   "author": "Nitipit Nontasuwan",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nitipit/icon/issues"
-  },
-  "homepage": "https://github.com/nitipit/icon#readme",
-  "main": "dist/icons.js",
+  "source": "src/icon.ts",
+  "main": "dist/icon.cjs.js",
   "module": "dist/icon.js",
-  "targets": {
-    "main": false,
-    "module": {
-      "source": "src/icon.ts",
-      "outputFormat": "esmodule",
-      "isLibrary": true
-    },
-    "docs": {
-      "outputFormat": "global",
-      "distDir": "docs"
-    }
-  },
-  "directories": {
-    "doc": "docs"
-  },
-  "dependencies": {
-    "parcel": "^2.8.3"
+  "types": "dist/icon.d.ts",
+  "devDependencies": {
+    "parcel": "^2.10.2"
   }
 }
