@@ -1,7 +1,7 @@
 {
-  "name": "@nitipit/icon",
+  "name": "deficon",
   "version": "1.0.0",
-  "description": "HTML5 Icon component for SVG icons",
+  "description": "SVG defs icon component for HTML",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
