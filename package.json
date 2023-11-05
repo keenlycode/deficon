@@ -19,6 +19,7 @@
   "module": "dist/icon.js",
   "types": "dist/icon.d.ts",
   "devDependencies": {
+    "jsdom": "^22.1.0",
     "parcel": "^2.10.2"
   }
 }
