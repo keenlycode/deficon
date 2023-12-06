@@ -11,5 +11,5 @@
         "outDir": "dist",
         "declaration": true,
     },
-    "include": ["src/component/icon.ts"]
+    "include": ["ts-src/icon.ts"]
 }

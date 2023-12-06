@@ -13,11 +13,11 @@
   },
   "author": "Nitipit Nontasuwan",
   "license": "MIT",
-  "source": "src/icon.ts",
+  "source": "ts-src/icon.ts",
   "module": "dist/icon.js",
   "types": "dist/icon.d.ts",
   "files": [
-    "dist, src"
+    "dist, ts-src"
   ],
   "devDependencies": {
     "esbuild": "^0.19.8",
