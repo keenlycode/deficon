@@ -21,7 +21,7 @@ export class Icon extends HTMLElement {
         use.setAttributeNS(
             'http://www.w3.org/1999/xlink',
             'xlink:href',
-            `${(this.constructor as any).href}#${this.name}`);
+            `${(this.constructor as typeof Icon).href}#${this.name}`);
         svg.appendChild(use);
     }
 }
