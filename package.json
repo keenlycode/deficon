@@ -1,6 +1,6 @@
 {
   "name": "@devcapsule/deficon",
-  "version": "1.0.0",
+  "version": "1.0.1dev",
   "description": "SVG defs icon component for HTML",
   "keywords": [
     "icon",
@@ -9,17 +9,18 @@
     "svg"
   ],
   "scripts": {
-    "watch": "parcel watch src/icon.ts",
-    "build": "parcel build --no-cache src/icon.ts"
+    "dist": "npx tsc"
   },
   "author": "Nitipit Nontasuwan",
   "license": "MIT",
   "source": "src/icon.ts",
-  "main": "dist/icon.cjs.js",
   "module": "dist/icon.js",
   "types": "dist/icon.d.ts",
+  "files": [
+    "dist, src"
+  ],
   "devDependencies": {
-    "jsdom": "^22.1.0",
-    "parcel": "^2.10.2"
+    "esbuild": "^0.19.8",
+    "typescript": "^5.3.2"
   }
 }

@@ -6,7 +6,7 @@ export class Icon extends HTMLElement {
         super();
         this.name = this.getAttribute('name');
         this.render();
-    };
+    }
 
     render() {
         let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -24,4 +24,4 @@ export class Icon extends HTMLElement {
             `${(this.constructor as any).href}#${this.name}`);
         svg.appendChild(use);
     }
-};
+}

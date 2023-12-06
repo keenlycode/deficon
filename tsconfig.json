@@ -2,12 +2,14 @@
 {
     "compilerOptions": {
         "target": "ES6",
-        "module": "NodeNext",
-        "moduleResolution": "NodeNext",
+        "module": "ESNext",
+        "moduleResolution": "Node",
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
-        "sourceMap": true
+        "sourceMap": true,
+        "outDir": "dist",
+        "declaration": true,
     },
     "include": ["src/icon.ts"]
 }
