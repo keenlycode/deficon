@@ -9,7 +9,7 @@
     "svg"
   ],
   "scripts": {
-    "dist": "npx tsc"
+    "dist": "npx tsc --build --verbose && node esbuild/dist.mjs"
   },
   "author": "Nitipit Nontasuwan",
   "license": "MIT",
