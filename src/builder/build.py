@@ -4,20 +4,21 @@ from pathlib import Path
 from xml.etree import ElementTree
 import asyncio
 
-_dir = Path(__file__).parent
 
-async def icon_svg():
-    src_dir = Path(__file__).parent.joinpath('src', 'icon')
-    dist_dir = Path(__file__).parent.joinpath('dist')
-    adwaita_path = dist_dir.joinpath('icon.svg')
-    svg_dir = dist_dir.joinpath('svg')
-    svg_dir.mkdir(parents=True, exist_ok=True)
+async def svg_def_builder(
+        src_dir: Path,
+        dest_dir: Path,
+        fill_colors_to_remove: list[str]):
+    
+    src_dir = Path(src_dir)
+    dest_dir = Path(dest_dir)
+    svgdef_path = dest_dir.joinpath('svg-def.svg')
 
-    with open(adwaita_path, 'w') as f:
+    with open(svgdef_path, 'w') as f:
         f.write('<svg></svg>')
 
     ElementTree.register_namespace('', 'http://www.w3.org/2000/svg')
-    svg_symbol = ElementTree.parse(adwaita_path)
+    svg_symbol = ElementTree.parse(svgdef_path)
 
     def sort_by_name_caseless(path):
         return str.casefold(str(path))
@@ -27,31 +28,13 @@ async def icon_svg():
             svg_path = Path(svg_path)
             svg = f.read()
 
-        svg = svg.replace('fill="#474747"', '')
-        svg = svg.replace('fill="#2e3436"', '')
-        svg = svg.replace('fill="#2e3434"', '')
-        svg = svg.replace('fill="#222222"', '')
-        svg = svg.replace('fill="#212121"', '')
+        for fill_color in fill_colors_to_remove:
+            svg = svg.replace(f'fill="{fill_color}"', '')
         
         svg = ElementTree.parse(io.StringIO(svg))
         svg_root = svg.getroot()
 
-        # Fix node attrib
-        for node in svg_root.iter('*'):
-            keys = []
-            for key in node.attrib:
-                if re.match('^font-.*', key):
-                    keys.append(key)
-                if re.match('style', key):
-                    keys.append(key)
-                if re.match('color', key):
-                    keys.append(key)
-            for key in keys:
-                del node.attrib[key]
-
-        filename = svg_path.name.replace('-symbolic.svg', '.svg')
-        id_ = filename.replace('.svg', '')
-        svg.write(svg_dir.joinpath(filename))
+        id_ = svg_path.name.replace('.svg', '')
 
         symbol = ElementTree.fromstring('<symbol></symbol>')
         symbol.set('viewBox', '0 0 16 16')
@@ -71,12 +54,12 @@ async def icon_svg():
         for metadata in svg_symbol.getroot().iter('metadata'):
             symbol.remove(metadata)
 
-    svg_symbol.write(adwaita_path)
+    svg_symbol.write(svgdef_path)
 
 
 async def main():
     await asyncio.gather(
-        icon_svg(),
+        svg_def_builder(),
     )
 
 asyncio.run(main())
