@@ -1,44 +1,26 @@
 {
-  "name": "deficon",
-  "version": "1.0.0",
+  "name": "@devcapsule/deficon",
+  "version": "1.0.1dev",
   "description": "SVG defs icon component for HTML",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nitipit/icon.git"
-  },
   "keywords": [
     "icon",
     "js",
     "html",
     "svg"
   ],
+  "scripts": {
+    "dist": "npx tsc --build --verbose && node esbuild/dist.mjs"
+  },
   "author": "Nitipit Nontasuwan",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nitipit/icon/issues"
-  },
-  "homepage": "https://github.com/nitipit/icon#readme",
-  "main": "dist/icons.js",
+  "source": "ts-src/icon.ts",
   "module": "dist/icon.js",
-  "targets": {
-    "main": false,
-    "module": {
-      "source": "src/icon.ts",
-      "outputFormat": "esmodule",
-      "isLibrary": true
-    },
-    "docs": {
-      "outputFormat": "global",
-      "distDir": "docs"
-    }
-  },
-  "directories": {
-    "doc": "docs"
-  },
-  "dependencies": {
-    "parcel": "^2.8.3"
+  "types": "dist/icon.d.ts",
+  "files": [
+    "dist, ts-src"
+  ],
+  "devDependencies": {
+    "esbuild": "^0.19.8",
+    "typescript": "^5.3.2"
   }
 }

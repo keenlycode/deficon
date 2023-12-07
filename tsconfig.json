@@ -1,0 +1,15 @@
+// This config is used by parcel
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "outDir": "dist",
+        "declaration": true,
+    },
+    "include": ["ts-src/icon.ts"]
+}
