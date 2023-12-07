@@ -18,9 +18,9 @@
   },
   "author": "Nitipit Nontasuwan",
   "license": "MIT",
-  "source": "ts-src/icon.ts",
-  "module": "dist/icon.js",
-  "types": "dist/icon.d.ts",
+  "source": "src/deficon.ts",
+  "module": "dist/deficon.js",
+  "types": "dist/deficon.d.ts",
   "files": [
     "dist, src"
   ],

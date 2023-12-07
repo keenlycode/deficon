@@ -2,8 +2,8 @@ import * as esbuild from 'esbuild';
 
 
 const result = await esbuild.build({
-    entryPoints: ['src/icon.ts'],
-    outfile: 'dist/icon.min.js',
+    entryPoints: ['src/deficon.ts'],
+    outfile: 'dist/deficon.min.js',
     bundle: true,
     format: "esm",
     target: "es6",
