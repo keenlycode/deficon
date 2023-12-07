@@ -1,6 +1,6 @@
 type Constructor<T = {}> = new (...args: any[]) => T;
 
-class DefIcon {
+class _DefIcon {
     static url: string;
     element: HTMLElement;
 
@@ -39,27 +39,30 @@ class DefIcon {
     }
 }
 
-interface DefIconMixinOption {
+interface DefIconParam {
     url: string;
-    cls?: any;
-    obj?: any;
+    objectField?: any;
 }
 
 function DefIconMixin<TBase extends Constructor<HTMLElement>>(
-        Base: TBase, {url='', cls=DefIcon, obj='deficon'}: DefIconMixinOption) {
+        {url, objectField='deficon'}: DefIconParam,
+        Base: TBase) {
 
-    class DefIcon extends cls {};
-    DefIcon.url = url;
+    class _Def extends _DefIcon {};
+    _Def.url = url;
 
     return class extends Base {
-        static DefIcon = DefIcon;
         [key: string]: any;
 
         constructor(...args: any[]) {
-            super();
-            this[obj] = new this.constructor.DefIcon(this);
+            super(...args);
+            this[objectField] = new _Def(this);
         };
     }
 }
 
-export { DefIconMixin };
+function DefIcon(param: DefIconParam) {
+    return class extends DefIconMixin(param, HTMLElement) {};
+}
+
+export { DefIconMixin, DefIcon };

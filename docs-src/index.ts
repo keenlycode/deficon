@@ -1,14 +1,16 @@
-import { DefIconMixin } from '../src/icon';
+import { DefIconMixin, DefIcon } from '../src/icon';
 
 new EventSource('/esbuild').addEventListener('change', () => location.reload());
 
-class Icon1 extends DefIconMixin(HTMLElement, {url: './asset/icon.svg'}) {};
-class Icon2 extends DefIconMixin(HTMLElement, {url: './asset/'}) {};
+class Icon1 extends DefIconMixin({url: './asset/icon.svg'}, HTMLElement) {};
+class Icon2 extends DefIcon({url:'aa'}) {};
 
 customElements.define('el-icon1', Icon1);
-const icon = new Icon1();
-icon.deficon.name = 'applause';
-document.body.append(icon);
+customElements.define('el-icon2', Icon2);
+const icon1 = new Icon1();
+icon1.deficon.name = 'applause';
+document.body.append(icon1);
 
-window.Icon1 = Icon1;
-window.Icon2 = Icon2;
+const icon2 = new Icon2();
+icon2.name = 'test';
+document.body.append(icon2);
