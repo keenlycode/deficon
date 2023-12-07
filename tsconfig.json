@@ -10,6 +10,7 @@
         "sourceMap": true,
         "outDir": "dist",
         "declaration": true,
+        "esModuleInterop": true,
     },
-    "include": ["ts-src/icon.ts"]
+    "include": ["src/deficon.ts"]
 }
