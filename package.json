@@ -1,6 +1,6 @@
 {
   "name": "@devcapsule/deficon",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "SVG defs to icon component for web application",
   "keywords": [
     "icon",
@@ -22,7 +22,7 @@
   "module": "dist/deficon.js",
   "types": "dist/deficon.d.ts",
   "files": [
-    "dist, src"
+    "dist/**/*", "src/**/*"
   ],
   "devDependencies": {
     "@devcapsule/adapter": "^2.1.0",

@@ -1,13 +1,13 @@
 # DefIcon V2.0.0
 
-> SVG Definitions to Icon Component for Web Application
+> **SVG Definitions to Icon Component for Web Application**
 
 ```js
 // Javascript
 import { DefIcon } from '@devcapsule/deficon';
 
 class Icon extends DefIcon({
-    url: 'http://keenlycode.github.io/gnomicon/lib/gnomicon/icon.svg'}) {};
+    url: '//keenlycode.github.io/gnomicon/lib/gnomicon/icon.svg'}) {};
 
 customElements.define('el-icon', Icon);
 ```
@@ -22,7 +22,7 @@ Using Mixin
 // Javascript
 import { DefIconMixin } from '@devcapsule/deficon';
 
-class Icon extends DefIconMixin({url: ''}, HTMLElement) {};
+class Icon extends DefIconMixin({url: '//keenlycode.github.io/gnomicon/lib/gnomicon/icon.svg'}, HTMLElement) {};
 
 // The rest is the same.
 customElements.define('el-icon', Icon);
