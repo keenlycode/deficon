@@ -1,8 +1,7 @@
 type Constructor<T = {}> = new (...args: any[]) => T;
 
-class _DefIcon {
+class _Icon {
     static url: string;
-    element: HTMLElement;
 
     set name(name: string) {
         this.element.setAttribute('name', name);
@@ -13,16 +12,40 @@ class _DefIcon {
         return this.element.getAttribute('name');
     }
 
+    element: HTMLElement;
+    _class: typeof _Icon;
+
     constructor(element: HTMLElement) {
+        this._class = this.constructor as typeof _Icon;
         this.element = element;
         this.render();
+
+        const observer = new MutationObserver((mutationRecords, observer) => {
+            this.observerCallback(mutationRecords, observer)
+        })
+        observer.observe(this.element, {attributes: true});
+    }
+
+    observerCallback(
+            mutationRecords: MutationRecord[],
+            observer: MutationObserver) {
+                
+        for (const mutation of mutationRecords) {
+            if (mutation.type === "attributes") {
+                if (mutation.attributeName === "name") {
+                    this.render();
+                }
+            }
+        }
     }
 
     render() {
-        if (!this.constructor.url) {
+        if (!this._class.url) {
             return;
         }
-        let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        let svg = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "svg");
         let use = document.createElementNS(
             'http://www.w3.org/2000/svg',
             'use');
@@ -34,34 +57,34 @@ class _DefIcon {
         use.setAttributeNS(
             'http://www.w3.org/1999/xlink',
             'xlink:href',
-            `${this.constructor.url}#${this.name}`);
+            `${this._class.url}#${this.name}`);
         svg.appendChild(use);
     }
 }
 
-interface DefIconParam {
+interface IconParam {
     url: string;
     objectField?: any;
 }
 
 function DefIconMixin<TBase extends Constructor<HTMLElement>>(
-        {url, objectField='deficon'}: DefIconParam,
+        {url, objectField='deficon'}: IconParam,
         Base: TBase) {
 
-    class _Def extends _DefIcon {};
-    _Def.url = url;
+    class __Icon extends _Icon {};
+    __Icon.url = url;
 
     return class extends Base {
         [key: string]: any;
 
         constructor(...args: any[]) {
             super(...args);
-            this[objectField] = new _Def(this);
+            this[objectField] = new __Icon(this);
         };
     }
 }
 
-function DefIcon(param: DefIconParam) {
+function DefIcon(param: IconParam) {
     return class extends DefIconMixin(param, HTMLElement) {};
 }
 
