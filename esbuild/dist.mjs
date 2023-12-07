@@ -2,7 +2,7 @@ import * as esbuild from 'esbuild';
 
 
 const result = await esbuild.build({
-    entryPoints: ['ts-src/icon.ts'],
+    entryPoints: ['src/icon.ts'],
     outfile: 'dist/icon.min.js',
     bundle: true,
     format: "esm",
