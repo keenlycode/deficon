@@ -8,7 +8,7 @@ const server = await esbuild.context({
     outdir: 'docs',
     bundle: true,
     format: "esm",
-    target: "es6",
+    target: "chrome100",
     minify: true,
     sourcemap: true,
     keepNames: true,
