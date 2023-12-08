@@ -51,3 +51,8 @@ npm run test-watch
 ```shell
 npm run docs
 ```
+
+### Build distribution files
+```shell
+npm run dist
+```
