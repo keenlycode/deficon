@@ -1,6 +1,8 @@
-import { AdapterMixin } from '@devcapsule/adapter';
-import { DefIcon } from '../src/deficon';
+import { Adapter } from '@devcapsule/adapter';
+import { bgColor } from 'gadjet/src/gadjet';
+import { color } from './_base';
 
+const css = String.raw;
 
 const __js_url = new URL(import.meta.url);
 
@@ -9,7 +11,25 @@ if ( ["localhost", "127.0.0.1"].includes(__js_url.hostname) ) {
         .addEventListener('change', () => location.reload());
 }
 
-class Icon extends AdapterMixin(DefIcon({url: './asset/icon.svg'})) {};
+class Impress extends Adapter {};
+Impress.tagStyle(css`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    background-color: red;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    ${bgColor(color.palette.blue)}
+    & h1 {
+        margin: 0;
+    }
+    & el-icon {
+        font-size: 3rem;
+    }
+`)
 
-Icon.define('el-icon');
-Icon.tagStyle(`fill: red;`);
+Impress.define('el-impress');
