@@ -1,5 +1,6 @@
-# DefIcon V2.0.0
+# DefIcon - 2.0.x
 
+## Usage
 > **SVG Definitions to Icon Component for Web Application**
 
 ```js
@@ -7,7 +8,7 @@
 import { DefIcon } from '@devcapsule/deficon';
 
 class Icon extends DefIcon({
-    url: '//keenlycode.github.io/gnomicon/lib/gnomicon/icon.svg'}) {};
+    url: './icon.svg'}) {};
 
 customElements.define('el-icon', Icon);
 ```
@@ -17,14 +18,36 @@ customElements.define('el-icon', Icon);
 <el-icon name="audio-speakers"></el-icon>
 ```
 
-Using Mixin
+### Using Mixin
+
+Mixin is more flexible and can extends other `HTMLElement` Component.
 ```js
 // Javascript
 import { DefIconMixin } from '@devcapsule/deficon';
 
-class Icon extends DefIconMixin({url: '//keenlycode.github.io/gnomicon/lib/gnomicon/icon.svg'}, HTMLElement) {};
+class Icon extends DefIconMixin({url: './icon.svg'}, HTMLElement) {};
 
 // The rest is the same.
 customElements.define('el-icon', Icon);
 // ...
+```
+
+## Development
+
+### Environment Required
+- NodeJS
+- Python
+
+### Run Test
+```shell
+npm run test
+```
+Test in watch mode
+```shell
+npm run test-watch
+```
+
+### Build documentation
+```shell
+npm run docs
 ```
