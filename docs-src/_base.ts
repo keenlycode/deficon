@@ -21,7 +21,7 @@ const color = {
     }
 }
 
-class Container extends Adapter {}
+class Container extends Adapter {};
 Container.tagStyle(css`
     display: block;
     margin: auto;
@@ -31,6 +31,15 @@ Container.tagStyle(css`
     box-sizing: border-box;
 `);
 
+class Paragraph extends Adapter {};
+Paragraph.tagStyle(css`
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 80ch;
+    width: 100%;
+`)
+
 class Icon extends AdapterMixin(
     DefIcon({ url: icon_url.toString() })
 ) {};
@@ -38,4 +47,4 @@ Icon.tagStyle(`
     fill: currentColor;
 `)
 
-export { Container, Icon, color };
+export { Container, Paragraph, Icon, color };

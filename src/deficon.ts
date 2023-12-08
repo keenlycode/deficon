@@ -1,6 +1,6 @@
 type Constructor<T = {}> = new (...args: any[]) => T;
 
-class _Icon {
+class Icon {
     static url: string;
 
     set name(name: string) {
@@ -13,10 +13,10 @@ class _Icon {
     }
 
     element: HTMLElement;
-    _class: typeof _Icon;
+    _class: typeof Icon;
 
     constructor(element: HTMLElement) {
-        this._class = this.constructor as typeof _Icon;
+        this._class = this.constructor as typeof Icon;
         this.element = element;
         this.render();
 
@@ -64,22 +64,22 @@ class _Icon {
 
 interface IconParam {
     url: string;
-    objectField?: any;
+    deficonField?: any;
 }
 
 function DefIconMixin<TBase extends Constructor<HTMLElement>>(
-        {url, objectField='deficon'}: IconParam,
+        {url, deficonField='deficon'}: IconParam,
         Base: TBase) {
 
-    class __Icon extends _Icon {};
-    __Icon.url = url;
+    class _Icon extends Icon {};
+    _Icon.url = url;
 
     return class DefIconMixin extends Base {
         [key: string]: any;
 
         constructor(...args: any[]) {
             super(...args);
-            this[objectField] = new __Icon(this);
+            this[deficonField] = new _Icon(this);
         };
     }
 }

@@ -2,24 +2,32 @@ import { addStyle } from "@devcapsule/adapter";
 import { fontFluid } from "gadjet/src/style/font-fluid";
 
 const __file_url = new URL(import.meta.url);
-const font_kanit_url = new URL('./asset/font/kanit/Kanit-Regular.ttf', __file_url.href);
-
+const font_sans_serif_url = new URL('./asset/font/Fira_Sans/FiraSans-Regular.ttf', __file_url.href);
+const font_monospace_url = new URL('./asset/font/Fira_Code/FiraCode-Regular.ttf', __file_url.href);
 
 const css = String.raw;
 
 addStyle(css`
 @font-face {
-    font-family: sans;
-    src: url(${font_kanit_url});
+    font-family: sans-serif;
+    src: url(${font_sans_serif_url});
+}
+
+@font-face {
+    font-family: monospace;
+    src: url(${font_monospace_url});
 }
 
 html {
-    font-family: sans;
-    letter-spacing: 0.1cap;
+    font-family: sans-serif;
     ${fontFluid({
         vwMin: 300, vwMax: 1000,
         fontSizeMin: 14, fontSizeMax: 20
     })}
+}
+
+code {
+    font-family: monospace;
 }
 
 body {
@@ -29,5 +37,11 @@ body {
 h1, h2 {
     box-sizing: border-box;
     line-height: 1.7;
+}
+
+pre > code.hljs {
+    font-size: 0.9rem;
+    border-radius: 10px;
+    border-top-left-radius: 0;
 }
 `);

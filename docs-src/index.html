@@ -1,22 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DefIcon</title>
-    <script defer type="module" src="base.js?v={{_v}}"></script>
-    <script defer type="module" src="index.js?v={{_v}}"></script>
+{% extends '_base.html' %}
+
+{% set to_root = './' %}
+
+{% block head %}
+{{ super() }}
+<script defer type="module" src="index.js?v={{_v}}"></script>
+{% endblock %}
 </head>
-<body>
-    <el-impress>
-        <el-container>
-            <h1>DefIcon</h1>
-            <h2>Bring SVG Definitions to Icon Component<br>for WebApp</h2>
-            <el-icon name="applause"></el-icon>
-        </el-container>
-    </el-impress>
+{% block body %}
+<el-impress>
     <el-container>
-    {{ markdown('index.html.content.md') }}
+        <h1>DefIcon</h1>
+        <h2>Bring SVG Definitions to Icon Component<br>for WebApp</h2>
+        <el-icon name="applause"></el-icon>
     </el-container>
-</body>
-</html>
+</el-impress>
+<el-container>
+    <el-paragraph>
+    {{ markdown('index.html.content.md') }}
+    </el-paragraph>
+</el-container>
+{% endblock body %}
