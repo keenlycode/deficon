@@ -23,7 +23,8 @@ const color = {
 
 class Container extends Adapter {}
 Container.tagStyle(css`
-    display: inline-block;
+    display: block;
+    margin: auto;
     width: 90%;
     max-width: 1000px;
     min-width: 300px;

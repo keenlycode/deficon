@@ -74,7 +74,7 @@ function DefIconMixin<TBase extends Constructor<HTMLElement>>(
     class __Icon extends _Icon {};
     __Icon.url = url;
 
-    return class extends Base {
+    return class DefIconMixin extends Base {
         [key: string]: any;
 
         constructor(...args: any[]) {
@@ -85,7 +85,7 @@ function DefIconMixin<TBase extends Constructor<HTMLElement>>(
 }
 
 function DefIcon(param: IconParam) {
-    return class extends DefIconMixin(param, HTMLElement) {};
+    return class DefIcon extends DefIconMixin(param, HTMLElement) {};
 }
 
 export { DefIconMixin, DefIcon };
