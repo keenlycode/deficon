@@ -1,6 +1,6 @@
 {
   "name": "@devcapsule/deficon",
-  "version": "2.0.2-dev",
+  "version": "2.0.2",
   "description": "SVG defs to icon component for web application",
   "keywords": [
     "icon",
