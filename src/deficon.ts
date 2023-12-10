@@ -4,26 +4,26 @@ class Icon {
     static url: string;
 
     set name(name: string) {
-        this.element.setAttribute('name', name);
+        this._element.setAttribute('name', name);
         this.render();
     }
 
     get name() {
-        return this.element.getAttribute('name');
+        return this._element.getAttribute('name');
     }
 
-    element: HTMLElement;
+    _element: HTMLElement;
     _class: typeof Icon;
 
     constructor(element: HTMLElement) {
         this._class = this.constructor as typeof Icon;
-        this.element = element;
+        this._element = element;
         this.render();
 
         const observer = new MutationObserver((mutationRecords, observer) => {
             this.observerCallback(mutationRecords, observer)
         })
-        observer.observe(this.element, {attributes: true});
+        observer.observe(this._element, {attributes: true});
     }
 
     observerCallback(
@@ -50,10 +50,10 @@ class Icon {
             'http://www.w3.org/2000/svg',
             'use');
 
-        this.element.innerHTML = '';
+        this._element.innerHTML = '';
         svg.style.width = '1em';
         svg.style.height = '1em';
-        this.element.appendChild(svg);
+        this._element.appendChild(svg);
         use.setAttributeNS(
             'http://www.w3.org/1999/xlink',
             'xlink:href',
@@ -64,7 +64,7 @@ class Icon {
 
 interface IconParam {
     url: string;
-    deficonField?: any;
+    deficonField?: any;    
 }
 
 function DefIconMixin<TBase extends Constructor<HTMLElement>>(
