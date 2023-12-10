@@ -4,7 +4,7 @@
 
 {% block head %}
 {{ super() }}
-<script defer type="module" src="index.js?v={{_v}}"></script>
+<script defer type="module" src="{{to_roo}}index.js?v={{_v}}"></script>
 {% endblock %}
 </head>
 {% block body %}
@@ -13,6 +13,11 @@
         <h1>DefIcon</h1>
         <h2>Bring SVG Definitions to Icon Component<br>for WebApp</h2>
         <el-icon name="applause"></el-icon>
+        <div class="width-100">
+            <a href="https://github.com/keenlycode/deficon">
+                <button>Github</button>
+            </a>
+        </div>
     </el-container>
 </el-impress>
 <el-container>

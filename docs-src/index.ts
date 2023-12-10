@@ -4,13 +4,6 @@ import { color } from './_base';
 
 const css = String.raw;
 
-const __js_url = new URL(import.meta.url);
-
-if ( ["localhost", "127.0.0.1"].includes(__js_url.hostname) ) {
-    new EventSource('/esbuild')
-        .addEventListener('change', () => location.reload());
-}
-
 class Impress extends Adapter {};
 Impress.tagStyle(css`
     display: flex;

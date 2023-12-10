@@ -33,6 +33,7 @@ code {
 body {
     margin: 0;
     padding: 0;
+    padding-bottom: 10rem;
 }
 h1, h2 {
     box-sizing: border-box;
@@ -42,6 +43,19 @@ h1, h2 {
 pre > code.hljs {
     font-size: 0.9rem;
     border-radius: 10px;
-    border-top-left-radius: 0;
+    ${fontFluid({
+        vwMin: 300, vwMax: 1000,
+        fontSizeMin: 12, fontSizeMax: 16,        
+    })}
+}
+
+.width-100 {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.width-50 {
+    box-sizing: border-box;
+    width: 50%;
 }
 `);
