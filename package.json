@@ -1,6 +1,6 @@
 {
   "name": "@devcapsule/deficon",
-  "version": "2.0.2dev",
+  "version": "2.0.2-dev",
   "description": "SVG defs to icon component for web application",
   "keywords": [
     "icon",
@@ -8,6 +8,14 @@
     "html",
     "component"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keenlycode/deficon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/keenlycode/deficon/issues"
+  },
+  "homepage": "https://github.com/keenlycode/deficon#readme",
   "scripts": {
     "dist": "npx tsc --build --verbose && node esbuild/dist.mjs",
     "docs-js": "node esbuild/docs.mjs",
@@ -41,5 +49,9 @@
     "jsdom": "^23.0.1",
     "ts-jest": "^29.1.1",
     "typescript": "^5.3.2"
+  },
+  "main": "''",
+  "directories": {
+    "doc": "docs"
   }
 }
