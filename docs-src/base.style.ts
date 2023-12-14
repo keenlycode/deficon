@@ -27,6 +27,7 @@ html {
         vwMin: 300, vwMax: 1000,
         fontSizeMin: 14, fontSizeMax: 20
     })}
+    line-height: 1.7;
 }
 
 code {
