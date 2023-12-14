@@ -42,7 +42,7 @@
     "esbuild": "^0.19.8",
     "gadjet": "^1.0.4",
     "glob": "^10.3.10",
-    "gnomicon": "^45.0.0",
+    "gnomicon": "^45.1.2",
     "highlight.js": "^11.9.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
