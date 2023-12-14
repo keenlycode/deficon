@@ -1,5 +1,7 @@
 import { addStyle } from "@devcapsule/adapter";
-import { fontFluid } from "gadjet/src/style/font-fluid";
+import { fontFluid, bgColor } from "gadjet/src/gadjet";
+import { color } from './_base';
+
 
 const __file_url = new URL(import.meta.url);
 const font_sans_serif_url = new URL('./asset/font/Fira_Sans/FiraSans-Regular.ttf', __file_url.href);
@@ -7,6 +9,7 @@ const font_monospace_url = new URL('./asset/font/Fira_Code/FiraCode-Regular.ttf'
 
 const css = String.raw;
 
+console.log(color);
 addStyle(css`
 @font-face {
     font-family: sans-serif;
@@ -28,6 +31,9 @@ html {
 
 code {
     font-family: monospace;
+    ${bgColor(color.palette.dark)}
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.4rem;
 }
 
 body {

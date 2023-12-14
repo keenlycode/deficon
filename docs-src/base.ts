@@ -7,6 +7,7 @@ import html from 'highlight.js/lib/languages/xml';
 import 'highlight.js/styles/base16/atlas.min.css';
 
 import { Container, Paragraph, CodeBlock, Icon, color } from "./_base";
+import './base.style';
 
 
 const __js_url = new URL(import.meta.url);

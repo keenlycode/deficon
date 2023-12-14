@@ -68,8 +68,9 @@ interface IconParam {
 }
 
 function DefIconMixin<TBase extends Constructor<HTMLElement>>(
-        {url, deficonField='deficon'}: IconParam,
-        Base: TBase) {
+        Base: TBase,
+        {url, deficonField='deficon'}: IconParam
+    ) {
 
     class _Icon extends Icon {};
     _Icon.url = url;
@@ -85,7 +86,7 @@ function DefIconMixin<TBase extends Constructor<HTMLElement>>(
 }
 
 function DefIcon(param: IconParam) {
-    return class DefIcon extends DefIconMixin(param, HTMLElement) {};
+    return class DefIcon extends DefIconMixin(HTMLElement, param) {};
 }
 
 export { DefIconMixin, DefIcon };

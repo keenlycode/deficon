@@ -1,6 +1,5 @@
 import { Adapter, AdapterMixin } from "@devcapsule/adapter";
-import { DefIcon } from "https://cdn.jsdelivr.net/npm/@devcapsule/deficon@2.0/+esm";
-import "./base.style";
+import { DefIcon } from "@devcapsule/deficon";
 
 const __file_url = new URL(import.meta.url);
 const icon_url = new URL("./asset/icon.svg", __file_url);
@@ -42,6 +41,7 @@ Paragraph.tagStyle(css`
 
 class CodeBlock extends Adapter {};
 CodeBlock.tagStyle(css`
+    display: block;
     & [el="title"] {
         display: inline-flex;
         align-items: center;
@@ -63,7 +63,7 @@ CodeBlock.tagStyle(css`
 `)
 
 class Icon extends AdapterMixin(
-    DefIcon({ url: icon_url.toString() })
+    DefIcon({ url: icon_url })
 ) {};
 Icon.tagStyle(`
     fill: currentColor;
