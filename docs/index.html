@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DefIcon</title>
+    <link rel="stylesheet" href="./base.css?v=">
+    <script defer type="module" src="./base.js?v="></script>
+    
+
+<script defer type="module" src="index.js?v="></script>
+
+</head>
+<body>
+
+<el-impress>
+    <el-container>
+        <h1>DefIcon</h1>
+        <h2>Bring SVG Definitions to Icon Component<br>for WebApp</h2>
+        <el-icon name="applause"></el-icon>
+        <div class="width-100">
+            <a href="https://github.com/keenlycode/deficon">
+                <button>Github</button>
+            </a>
+        </div>
+    </el-container>
+</el-impress>
+<el-container>
+    <el-paragraph>
+    <h2>Quick start</h2>
+<hr />
+<h3>ES Module from JSDelivr</h3>
+<p>This example use SVG Definition Icon from
+<a href="https://keenlycode.github.io/gnomicon/">Gnomicon Project</a>.
+Or you can download Icons from <a href="https://unpkg.com/gnomicon@45.1.2/dist/icon.svg.gz">here</a>
+and put on your server in the same domain as your web page.</p>
+<el-code-block>
+    <div el="title">HTML</div>
+<pre><code class="language-html">&lt;script defer type=&quot;module&quot;&gt;
+import { DefIcon } from '//cdn.jsdelivr.net/npm/@devcapsule/deficon@2.0/+esm';
+
+class Icon extends DefIcon({ url: './asset/icon.svg'}) {};
+
+customElements.define('el-icon', Icon);
+&lt;/script&gt;
+&lt;body&gt;
+    &lt;div style=&quot;font-size: 3rem;&quot;&gt;
+        &lt;el-icon name=&quot;applause&quot;&gt;&lt;/el-icon&gt;
+        &lt;el-icon name=&quot;wallet&quot; style=&quot;fill: red;&quot;&gt;&lt;/el-icon&gt;
+        &lt;el-icon name=&quot;cat-sleeping&quot; style=&quot;font-size: 2rem;&quot;&gt;&lt;/el-icon&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+</el-code-block>
+<div style="font-size: 3rem;">
+    <el-icon name="applause"></el-icon>
+    <el-icon name="wallet" style="fill: red;"></el-icon>
+    <el-icon name="cat-sleeping" style="font-size: 2rem;"></el-icon>
+</div>
+<h3>NPM &amp; JS Build Tools</h3>
+<el-code-block>
+    <div el="title">shell</div>
+<pre><code class="language-shell">$ npm i @devcapsule/deficon
+</code></pre>
+</el-code-block>
+<el-code-block style="margin-top: 1rem;">
+    <div el="title">Javascript</div>
+<pre><code class="language-js">import { DefIcon } from '@devcapsule/deficon';
+</code></pre>
+</el-code-block>
+<h2>More SVG Def Icons</h2>
+<hr />
+<p>You can generate and download more <strong>SVG Def Icons</strong> from <a href="https://icomoon.io/">IcoMoon</a></p>
+<h2>Mixin</h2>
+<hr />
+<p>DefIcon provides mixin for extending other <code>HTMLElement</code> Component</p>
+<pre><code class="language-js">import { DefIconMixin } from '@devcapsule/deficon';
+
+class Icon extends DefIconMixin(HTMLElement, {url: './asset/icon.svg'}) {};
+</code></pre>
+<h2>Just that !! Have  a nice day 🥳</h2>
+
+    </el-paragraph>
+</el-container>
+
+</body>
+</html>
