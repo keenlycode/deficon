@@ -1,8 +1,10 @@
 import { Adapter, AdapterMixin } from "@devcapsule/adapter";
 import { DefIcon } from "@devcapsule/deficon";
 
+const _v = 2;
+
 const __file_url = new URL(import.meta.url);
-const icon_url = new URL("./asset/icon.svg", __file_url);
+const icon_url = new URL(`./asset/icon.svg?_v=${_v}`, __file_url);
 
 const css = String.raw;
 
@@ -63,7 +65,7 @@ CodeBlock.tagStyle(css`
 `)
 
 class Icon extends AdapterMixin(
-    DefIcon({ url: icon_url })
+    DefIcon({ url: icon_url.toJSON() })
 ) {};
 Icon.tagStyle(`
     fill: currentColor;

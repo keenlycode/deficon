@@ -9,7 +9,6 @@ const font_monospace_url = new URL('./asset/font/Fira_Code/FiraCode-Regular.ttf'
 
 const css = String.raw;
 
-console.log(color);
 addStyle(css`
 @font-face {
     font-family: sans-serif;
