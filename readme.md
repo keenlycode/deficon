@@ -28,7 +28,7 @@ Mixin is more flexible and can extends other `HTMLElement` Component.
 // Javascript
 import { DefIconMixin } from '@devcapsule/deficon';
 
-class Icon extends DefIconMixin({url: './icon.svg'}, HTMLElement) {};
+class Icon extends DefIconMixin(HTMLElement, {url: './icon.svg'}) {};
 
 // The rest is the same.
 customElements.define('el-icon', Icon);
